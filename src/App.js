@@ -1,9 +1,9 @@
-import './App.css';
-
+import './App.scss';
+import Search from './routes/Search';
 function App() {
     return (
         <>
-            <h1>This is app.js</h1>
+            <Search />
         </>
     );
 }
