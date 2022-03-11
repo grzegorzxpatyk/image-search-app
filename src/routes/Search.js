@@ -6,10 +6,6 @@ export default function Search() {
     let [searchParams, setSearchParams] = useSearchParams();
     const [imgs, setImgs, onEnter] = useOutletContext();
 
-    useEffect(() => {
-        console.log(onEnter);
-    });
-
     return (
         <>
             <h1 className="text-lowercase mb-5">image-search-app</h1>
