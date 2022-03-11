@@ -5,8 +5,15 @@ input {
     height: 3rem;
     padding: 1.5rem;
     width: 50%;
+    margin-bottom: 3rem;
 }
 input:focus-visible {
     outline: none;
     box-shadow: 0 0 3px #3a7efd88;
+}
+
+img {
+    margin: 1rem;
+    width: 40vw;
+    // height: 5vh;
 }

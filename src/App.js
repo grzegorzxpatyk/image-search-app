@@ -1,13 +1,22 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import './App.scss';
 
 function App() {
+    const [images, setImages] = useState();
+    let [searchParams, setSearchParams] = useSearchParams();
+    // let query = searchParams.get('query') || '';
+
     return (
-        <div className="d-flex justify-content-center align-items-center flex-column text-center text-white bg-dark h-100">
-            <nav className="d-flex flex-row justify-content-evenly w-100 fixed-top">
+        <div
+            id="App"
+            className="d-flex justify-content-center align-items-center flex-column text-center text-dark bg-light h-100"
+        >
+            {/* <nav className="d-flex flex-row justify-content-evenly w-100 fixed-top">
                 <NavLink to="/">Search</NavLink>
                 <NavLink to="/results">Results</NavLink>
-            </nav>
+            </nav> */}
             <Outlet />
         </div>
     );

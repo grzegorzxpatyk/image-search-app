@@ -1,20 +1,24 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 
-function Search() {
-    function onEnter(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            console.log('Enter pressed! input: ' + event.target.value);
-        }
-    }
+export default function Search() {
+    let [searchParams, setSearchParams] = useSearchParams();
 
     return (
         <>
-            <h1>This is app.js</h1>
-            <SearchBar onEnter={onEnter} />
+            <h1 className="text-lowercase mb-5">image-search-app</h1>
+            <SearchBar
+                value={searchParams.get('query') || ''}
+                onChange={(event) => {
+                    let query = event.target.value;
+                    if (query) {
+                        setSearchParams({ query });
+                    } else {
+                        setSearchParams({});
+                    }
+                }}
+            />
         </>
     );
 }
-
-export default Search;

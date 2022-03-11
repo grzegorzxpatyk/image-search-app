@@ -1,4 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
-div {
+
+#root {
+    height: 100%;
+}
+
+#App {
     height: 100vh;
 }
