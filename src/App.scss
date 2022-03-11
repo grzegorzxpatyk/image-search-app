@@ -1,9 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
-#root {
-    height: 100%;
-}
+// body {
+//     height: 100%;
+//     background-color: rgba(255, 17, 0, 0.479);
+// }
+
+// #root {
+// height: 100vh;
+// background-color: rgba(235, 147, 31, 0.63);
+// width: auto;
+// }
 
 #App {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    //     background: #47bd2a99;
+    // & * {
+    //     transform: translate(0, 20vh);
+    // }
 }

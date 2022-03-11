@@ -1,9 +1,14 @@
-import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSearchParams, useOutletContext } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 
 export default function Results() {
     let [searchParams, setSearchParams] = useSearchParams();
+    const [imgs, setImgs, onEnter] = useOutletContext();
+
+    // useEffect(() => {
+    //     console.log(imgs);
+    // });
     // let query = searchParams.get('query');
 
     // async function fetchData(query) {
@@ -11,7 +16,7 @@ export default function Results() {
     // }
 
     return (
-        <div className="h-100 w-100 d-flex justify-content-center align-items-center flex-column">
+        <div className="h-100 w-100 d-flex justify-content-center align-items-center flex-column overflow-auto">
             <SearchBar
                 value={searchParams.get('query') || ''}
                 onChange={(event) => {
@@ -22,7 +27,13 @@ export default function Results() {
                         setSearchParams({});
                     }
                 }}
+                onEnter={onEnter}
             />
+            <div className="imgs">
+                {imgs.map((img) => (
+                    <img src={img.url} alt={img.altDescription} key={img.url} />
+                ))}
+            </div>
         </div>
     );
 }

@@ -1,9 +1,14 @@
-import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSearchParams, useOutletContext } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 
 export default function Search() {
     let [searchParams, setSearchParams] = useSearchParams();
+    const [imgs, setImgs, onEnter] = useOutletContext();
+
+    useEffect(() => {
+        console.log(onEnter);
+    });
 
     return (
         <>
@@ -18,6 +23,7 @@ export default function Search() {
                         setSearchParams({});
                     }
                 }}
+                onEnter={onEnter}
             />
         </>
     );
