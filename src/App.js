@@ -42,12 +42,14 @@ function App() {
                 `${apiRoot}/search/photos?client_id=${accessKey}&query=${query}&count=10`
             )
             .then((response) => {
+                console.log(response);
                 response.data.results.forEach((result) => {
                     setImgs((prevImgs) => [
                         ...prevImgs,
                         {
+                            id: result.id,
                             url: result.urls.small,
-                            altDescription: result.alt_description,
+                            alt: result.alt_description,
                         },
                     ]);
                 });

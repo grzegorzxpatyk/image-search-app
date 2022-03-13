@@ -1,6 +1,8 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import UnsplashImage from '../components/UnsplashImage';
+import './Results.scss';
 
 export default function Results() {
     const [imgs, setImgs, onEnter, query, setQuery, searchParams] =
@@ -12,9 +14,13 @@ export default function Results() {
             <h1>{searchParams.get('query')}</h1>
             <div className="imgs">
                 {imgs.map((img) => (
-                    <img src={img.url} alt={img.altDescription} key={img.url} />
+                    <UnsplashImage {...img} key={img.id} />
                 ))}
             </div>
         </div>
     );
+}
+
+{
+    /* <img src={img.url} alt={img.alt} key={img.id} /> */
 }
