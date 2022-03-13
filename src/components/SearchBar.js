@@ -7,15 +7,12 @@ export default function SearchBar({ setQuery, onEnter }) {
     function handleChange(event) {
         setValue(event.target.value);
         setQuery(value);
-        // console.log(value);
     }
 
     function handleKeyup(event) {
         setValue(event.target.value);
         setQuery(value);
-        // console.log(value);
         if (event.keyCode === 13) {
-            // console.log(value);
             onEnter(event);
         }
     }
