@@ -4,45 +4,64 @@ import {
     Outlet,
     useSearchParams,
     useNavigate,
-    useLocation,
+    // useLocation,
 } from 'react-router-dom';
 import './App.scss';
 
 function App() {
     let [searchParams, setSearchParams] = useSearchParams();
     let navigate = useNavigate();
-    let location = useLocation();
+    // let location = useLocation();
     let [imgs, setImgs] = useState([]);
-    let query = searchParams.get('query') || '';
+    let [query, setQuery] = useState();
 
-    function onEnter(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            console.log('Enter pressed! input: ' + event.target.value);
-            navigate('/results' + location.search);
+    // useEffect(() => {
+    //     const currentParams = Object.fromEntries([...searchParams]);
+    //     console.log(currentParams); // get new values onchange
+    // }, [searchParams]);
 
-            const apiRoot = process.env.REACT_APP_APIROOT;
-            const accessKey = process.env.REACT_APP_ACCESSKEY;
+    async function onEnter(event) {
+        // if (event.keyCode === 13) {
+        event.preventDefault();
 
-            setImgs(() => []);
+        const apiRoot = process.env.REACT_APP_APIROOT;
+        const accessKey = process.env.REACT_APP_ACCESSKEY;
 
-            axios
-                .get(
-                    `${apiRoot}/search/photos?client_id=${accessKey}&query=${query}&count=10`
-                )
-                .then((response) => {
-                    console.log(response);
-                    response.data.results.forEach((result) => {
-                        setImgs((prevImgs) => [
-                            ...prevImgs,
-                            {
-                                url: result.urls.small,
-                                altDescription: result.alt_description,
-                            },
-                        ]);
-                    });
-                });
+        setImgs(() => []);
+        // navigate('/results');
+        if (query) {
+            navigate({ pathname: '/results', search: `?query=${query}` }); // , search: `?query=${query}`
+            // setSearchParams({ query });
+            console.log(query);
+            console.log('searchParams ' + searchParams.get('query'));
+            // navigate('/results' + location.search);
+            // navigate(`/results?query=${searchParams.get('query')}`);
+            // location.search = `?query=${query}`;
+        } else {
+            setSearchParams({});
+            navigate({ search: `` });
+            console.log('else');
         }
+
+        // navigate('/results' + location.search);
+
+        axios
+            .get(
+                `${apiRoot}/search/photos?client_id=${accessKey}&query=${query}&count=10`
+            )
+            .then((response) => {
+                // console.log(response);
+                response.data.results.forEach((result) => {
+                    setImgs((prevImgs) => [
+                        ...prevImgs,
+                        {
+                            url: result.urls.small,
+                            altDescription: result.alt_description,
+                        },
+                    ]);
+                });
+            });
+        // }
     }
 
     return (
@@ -54,7 +73,7 @@ function App() {
                 <NavLink to="/">Search</NavLink>
                 <NavLink to="/results">Results</NavLink>
             </nav> */}
-            <Outlet context={[imgs, setImgs, onEnter]} />
+            <Outlet context={[imgs, setImgs, onEnter, query, setQuery]} />
         </div>
     );
 }
