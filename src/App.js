@@ -32,12 +32,9 @@ function App() {
             } else if (location.pathname === '/results') {
                 setSearchParams({ query });
             }
-            console.log(query);
-            console.log('searchParams ' + searchParams.get('query'));
         } else {
             setSearchParams({});
             navigate({ search: `` });
-            console.log('else');
         }
 
         axios
