@@ -48,8 +48,10 @@ function App() {
                         ...prevImgs,
                         {
                             id: result.id,
-                            url: result.urls.small,
+                            urls: result.urls,
                             alt: result.alt_description,
+                            updatedat: result.updated_at,
+                            user: result.user,
                         },
                     ]);
                 });
