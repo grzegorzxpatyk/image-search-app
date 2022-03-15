@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 .imgs {
     width: fit-content;
     display: grid;
@@ -5,4 +7,21 @@
     column-gap: 0.5rem;
     row-gap: 0.5rem;
     // place-self: auto;
+}
+
+h1.query {
+    margin-top: 2rem;
+    text-transform: capitalize;
+    font-size: 4rem;
+}
+
+.app-logo {
+    font-family: $font-family-poppins;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    & > a {
+        color: rgb(43, 72, 134);
+        text-decoration: dashed;
+    }
 }
