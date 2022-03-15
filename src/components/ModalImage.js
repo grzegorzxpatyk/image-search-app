@@ -25,8 +25,10 @@ export default function ModalImage({
                 <Modal.Title id="contained-modal-title-vcenter">
                     {/* author */}
                     <h2>@{user.username}</h2>
-                    {user.first_name}
-                    {user.instagram_username}
+                    <p className="m-0">
+                        {user.first_name + ' ' + user.last_name}
+                    </p>
+                    <p className="m-0">instagram: @{user.instagram_username}</p>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center align-items-center">
