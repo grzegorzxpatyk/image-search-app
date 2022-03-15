@@ -6,7 +6,11 @@
     grid-template-columns: repeat(3, 33%);
     column-gap: 0.5rem;
     row-gap: 0.5rem;
-    // place-self: auto;
+    & img {
+        object-fit: cover;
+        width: 350px;
+        height: 350px;
+    }
 }
 
 h1.query {
@@ -22,6 +26,6 @@ h1.query {
     text-transform: lowercase;
     & > a {
         color: rgb(43, 72, 134);
-        text-decoration: dashed;
+        text-decoration: none;
     }
 }
