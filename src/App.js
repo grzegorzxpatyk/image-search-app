@@ -50,7 +50,7 @@ function App() {
                             id: result.id,
                             urls: result.urls,
                             alt: result.alt_description,
-                            updatedat: result.updated_at,
+                            createdat: result.created_at,
                             user: result.user,
                         },
                     ]);
@@ -63,10 +63,6 @@ function App() {
             id="App"
             className="h-100 w-100 d-flex justify-content-center align-items-center flex-column text-center text-dark bg-light"
         >
-            {/* <nav className="d-flex flex-row justify-content-evenly w-100 fixed-top">
-                <NavLink to="/">Search</NavLink>
-                <NavLink to="/results">Results</NavLink>
-            </nav> */}
             <Outlet
                 context={[
                     imgs,
