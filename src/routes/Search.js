@@ -8,7 +8,9 @@ export default function Search() {
     return (
         <>
             <h1 className="text-lowercase mb-5">image-search-app</h1>
-            <SearchBar setQuery={setQuery} onEnter={onEnter} />
+            <div className="container">
+                <SearchBar setQuery={setQuery} onEnter={onEnter} />
+            </div>
         </>
     );
 }

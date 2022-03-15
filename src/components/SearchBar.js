@@ -27,7 +27,6 @@ export default function SearchBar({ setQuery, onEnter }) {
                 onKeyUp={handleKeyup}
                 onChange={handleChange}
                 value={value}
-                className="mb-5"
             />
         </>
     );
