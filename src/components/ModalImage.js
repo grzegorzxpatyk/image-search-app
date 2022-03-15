@@ -2,14 +2,17 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 export default function ModalImage({
-    id,
     urls,
     alt,
-    updatedat,
+    createdat,
     user,
     onHide,
     show,
 }) {
+    let dateFormatted = new Date(createdat).toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric',
+    });
     return (
         <Modal
             show={show}
@@ -20,17 +23,41 @@ export default function ModalImage({
         >
             <Modal.Header className="d-flex justify-content-center" closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <img
-                        src={urls.regular}
-                        alt={alt}
-                        style={{ maxWidth: '50vw' }}
-                    />
+                    {/* author */}
+                    <h2>@{user.username}</h2>
+                    {user.first_name}
+                    {user.instagram_username}
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <p>{alt}</p>
+            <Modal.Body className="d-flex justify-content-center align-items-center">
+                <img
+                    src={urls.regular}
+                    alt={alt}
+                    style={{ maxWidth: '100%' }}
+                />
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className="d-flex justify-content-between">
+                <div
+                    className="details"
+                    style={{ width: '35%', minWidth: 'fit-content' }}
+                >
+                    {user.location && (
+                        <div
+                            className="user-location"
+                            style={{ minWidth: 'fit-content' }}
+                        >
+                            {user.location}
+                        </div>
+                    )}
+                    {createdat && (
+                        <div
+                            className="photo-createdAt"
+                            style={{ minWidth: 'fit-content' }}
+                        >
+                            {dateFormatted}
+                        </div>
+                    )}
+                </div>
                 <Button onClick={onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
