@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import {
     Outlet,
@@ -7,6 +6,7 @@ import {
     useLocation,
     createSearchParams,
 } from 'react-router-dom';
+import { createApi } from 'unsplash-js';
 import './App.scss';
 
 function App() {
@@ -15,12 +15,13 @@ function App() {
     let location = useLocation();
     let [imgs, setImgs] = useState([]);
     let [query, setQuery] = useState();
-
+    // const apiRoot = process.env.REACT_APP_APIROOT;
+    const accessKey = process.env.REACT_APP_ACCESSKEY;
+    const unsplashApi = createApi({
+        accessKey: accessKey,
+    });
     function onEnter(event) {
         event.preventDefault();
-
-        const apiRoot = process.env.REACT_APP_APIROOT;
-        const accessKey = process.env.REACT_APP_ACCESSKEY;
 
         setImgs(() => []);
         if (query) {
@@ -37,13 +38,10 @@ function App() {
             navigate({ search: `` });
         }
 
-        axios
-            .get(
-                `${apiRoot}/search/photos?client_id=${accessKey}&query=${query}&count=10`
-            )
-            .then((response) => {
-                console.log(response);
-                response.data.results.forEach((result) => {
+        unsplashApi.search
+            .getPhotos({ query: query, count: 9 })
+            .then((result) => {
+                result.response.results.forEach((result) => {
                     setImgs((prevImgs) => [
                         ...prevImgs,
                         {
@@ -55,6 +53,9 @@ function App() {
                         },
                     ]);
                 });
+            })
+            .catch(() => {
+                console.log('something went wrong!');
             });
     }
 
@@ -78,3 +79,4 @@ function App() {
 }
 
 export default App;
+export const appName = 'image-search-app';
