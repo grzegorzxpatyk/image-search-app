@@ -39,7 +39,7 @@ function App() {
         }
 
         unsplashApi.search
-            .getPhotos({ query: query, count: 9 })
+            .getPhotos({ query: query, page: 1, perPage: 12 })
             .then((result) => {
                 result.response.results.forEach((result) => {
                     setImgs((prevImgs) => [
