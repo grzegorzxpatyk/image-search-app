@@ -60,10 +60,7 @@ function App() {
     }
 
     return (
-        <div
-            id="App"
-            className="h-100 w-100 d-flex justify-content-center align-items-center flex-column text-center text-dark bg-light"
-        >
+        <div id="App" className="">
             <Outlet
                 context={[
                     imgs,

@@ -4,7 +4,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 350px);
-    grid-template-rows: repeat(4, 350px);
+    grid-template-rows: repeat(auto-fill, 350px);
     grid-gap: 1rem 1rem;
     & img {
         width: 100%;
