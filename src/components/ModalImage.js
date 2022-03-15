@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { appName } from '../App';
 
 export default function ModalImage({
     urls,
@@ -21,14 +22,28 @@ export default function ModalImage({
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header className="d-flex justify-content-center" closeButton>
+            <Modal.Header className="d-flex justify-content-start">
                 <Modal.Title id="contained-modal-title-vcenter">
                     {/* author */}
-                    <h2>@{user.username}</h2>
-                    <p className="m-0">
-                        {user.first_name + ' ' + user.last_name}
-                    </p>
-                    <p className="m-0">instagram: @{user.instagram_username}</p>
+                    Photo by{' '}
+                    <a
+                        href={
+                            user.links.html +
+                            `?utm_source=${appName}&utm_medium=referral`
+                        }
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        @{user.name}
+                    </a>{' '}
+                    on{' '}
+                    <a
+                        href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Unsplash
+                    </a>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center align-items-center">
