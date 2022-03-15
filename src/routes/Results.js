@@ -19,7 +19,7 @@ export default function Results() {
     }, [imgs]);
 
     return (
-        <div className="h-100 w-100 d-flex justify-content-center align-items-center flex-column overflow-auto mt-3">
+        <div className="h-100 w-100 d-flex justify-content-start align-items-center flex-column overflow-auto mt-3">
             <header className="container mb-5 d-flex flex-column align-items-start justify-content-between">
                 <h4 className="app-logo">
                     <NavLink to="/">image-search-app</NavLink>
@@ -61,5 +61,4 @@ export default function Results() {
 }
 
 {
-    /* <img src={img.url} alt={img.alt} key={img.id} /> */
 }
