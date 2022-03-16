@@ -1,6 +1,6 @@
 img {
     border-radius: 1rem;
-    width: 32%;
+    width: 30%;
     height: 100%;
     object-fit: cover;
     margin: 0.5rem;
@@ -8,14 +8,14 @@ img {
 
 @media screen and (max-width: 732px) {
     img {
-        margin: 5px auto;
-        width: 95vw;
+        margin: 5px;
+        width: 45%;
     }
 }
 @media screen and (max-width: 375px) {
     img {
-        margin: 5px;
+        margin: 0.5rem 0;
         width: 95vw;
-        min-width: 320px;
+        min-width: 200px;
     }
 }
