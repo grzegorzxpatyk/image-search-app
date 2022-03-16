@@ -22,7 +22,7 @@ export default function ModalImage({
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header className="d-flex justify-content-start">
+            <Modal.Header className="d-flex justify-content-start" closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {/* author */}
                     Photo by{' '}
