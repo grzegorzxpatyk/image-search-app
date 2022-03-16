@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import AppLogo from './AppLogo';
 import SearchBar from './SearchBar';
+import './Header.scss';
 
 function Header({ setQuery, onEnter, searchParams }) {
     return (
-        <header className="container mb-5 d-flex flex-column align-items-start justify-content-between">
+        <header className="d-flex flex-column align-items-start justify-content-between">
             <AppLogo />
             <SearchBar setQuery={setQuery} onEnter={onEnter} />
             {searchParams.get('query') && (

@@ -39,8 +39,14 @@ function App() {
         }
 
         unsplashApi.search
-            .getPhotos({ query: query, page: 1, perPage: 12 })
+            .getPhotos({
+                query: query,
+                page: 1,
+                perPage: 12,
+                orientation: 'squarish',
+            })
             .then((result) => {
+                console.log(result.response.results);
                 result.response.results.forEach((result) => {
                     setImgs((prevImgs) => [
                         ...prevImgs,
@@ -60,7 +66,7 @@ function App() {
     }
 
     return (
-        <div id="App" className="">
+        <div id="App">
             <Outlet
                 context={[
                     imgs,
@@ -69,6 +75,7 @@ function App() {
                     query,
                     setQuery,
                     searchParams,
+                    unsplashApi,
                 ]}
             />
         </div>

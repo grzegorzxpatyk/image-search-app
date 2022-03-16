@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useOutletContext } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
+import { useOutletContext } from 'react-router-dom';
 import UnsplashImage from '../components/UnsplashImage';
 import ModalImage from '../components/ModalImage';
 import Header from '../components/Header';
@@ -20,7 +19,7 @@ export default function Results() {
     }, [imgs]);
 
     return (
-        <div className="h-100 w-100 d-flex justify-content-start align-items-center flex-column overflow-auto mt-3">
+        <div className="h-100 w-100 d-flex justify-content-start align-items-center flex-column overflow-auto">
             <Header
                 setQuery={setQuery}
                 onEnter={onEnter}
@@ -57,7 +56,4 @@ export default function Results() {
             </main>
         </div>
     );
-}
-
-{
 }

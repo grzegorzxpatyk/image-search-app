@@ -4,7 +4,7 @@ import './UnsplashImage.scss';
 export default function UnsplashImage({ urls, alt, id, onClick }) {
     return (
         <div className="image-container" key={id}>
-            <img src={urls.small} alt={alt} onClick={onClick} />
+            <img src={urls.regular} alt={alt} onClick={onClick} />
         </div>
     );
 }
