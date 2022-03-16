@@ -1,12 +1,12 @@
 import { render } from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Search from './routes/Search';
 import Results from './routes/Results';
 
 const rootElement = document.getElementById('root');
 render(
-    <BrowserRouter>
+    <HashRouter>
         <Routes>
             <Route path="/" element={<App />}>
                 <Route index element={<Search />}></Route>
@@ -23,6 +23,6 @@ render(
                 ></Route>
             </Route>
         </Routes>
-    </BrowserRouter>,
+    </HashRouter>,
     rootElement
 );
