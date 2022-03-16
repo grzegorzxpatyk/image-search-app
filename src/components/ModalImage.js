@@ -47,11 +47,7 @@ export default function ModalImage({
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center align-items-center">
-                <img
-                    src={urls.regular}
-                    alt={alt}
-                    style={{ maxWidth: '100%' }}
-                />
+                <img src={urls.regular} alt={alt} style={{ width: '100%' }} />
             </Modal.Body>
             <Modal.Footer className="d-flex justify-content-between">
                 <div
