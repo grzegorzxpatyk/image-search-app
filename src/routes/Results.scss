@@ -1,33 +1,23 @@
 @import '../scss/variables';
 
-.imgs {
+.results-container {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 350px);
-    grid-template-rows: repeat(auto-fill, 350px);
-    grid-gap: 1rem 1rem;
-    & img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    height: 100%;
 }
 
-h1.query {
-    margin-top: 2rem;
-    text-transform: capitalize;
-    font-size: 4rem;
+main {
+    width: 75vw;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: stretch;
 }
 
-.app-logo {
-    font-family: $font-family-poppins;
-    margin-top: 0.2rem;
-    margin-bottom: 1.5rem;
-    text-transform: lowercase;
-    & > a {
-        color: rgb(43, 72, 134);
-        text-decoration: none;
+@media screen and (max-width: 731px) {
+    main {
+        width: 98vw;
+        margin: 0 auto;
     }
 }

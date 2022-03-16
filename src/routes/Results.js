@@ -19,40 +19,38 @@ export default function Results() {
     }, [imgs]);
 
     return (
-        <div className="h-100 w-100 d-flex justify-content-start align-items-center flex-column overflow-auto">
+        <div className="results-container">
             <Header
                 setQuery={setQuery}
                 onEnter={onEnter}
                 searchParams={searchParams}
             />
             <main>
-                <div className="imgs">
-                    {imgs.map((img) => (
-                        <>
-                            <UnsplashImage
-                                {...img}
-                                key={img.id}
-                                onClick={() =>
-                                    setModalShow((prev) => ({
-                                        ...prev,
-                                        [`M_${img.id}`]: true,
-                                    }))
-                                }
-                            />
-                            <ModalImage
-                                key={`M_${img.id}`}
-                                show={modalShow[`M_${img.id}`]}
-                                onHide={() =>
-                                    setModalShow((prev) => ({
-                                        ...prev,
-                                        [`M_${img.id}`]: false,
-                                    }))
-                                }
-                                {...img}
-                            />
-                        </>
-                    ))}
-                </div>
+                {imgs.map((img) => (
+                    <>
+                        <UnsplashImage
+                            {...img}
+                            key={img.id}
+                            onClick={() =>
+                                setModalShow((prev) => ({
+                                    ...prev,
+                                    [`M_${img.id}`]: true,
+                                }))
+                            }
+                        />
+                        <ModalImage
+                            key={`M_${img.id}`}
+                            show={modalShow[`M_${img.id}`]}
+                            onHide={() =>
+                                setModalShow((prev) => ({
+                                    ...prev,
+                                    [`M_${img.id}`]: false,
+                                }))
+                            }
+                            {...img}
+                        />
+                    </>
+                ))}
             </main>
         </div>
     );

@@ -39,8 +39,6 @@ export default function Search() {
     return (
         <div
             style={{
-                height: '100%',
-                width: '100%',
                 background: `lightgray url("${backgroundUrl}") 100vw`,
             }}
             className="search-container"

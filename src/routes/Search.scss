@@ -1,9 +1,14 @@
-.search-container header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #cfcfcf77;
+.search-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & header {
+        padding: 2rem;
+        border-radius: 2rem;
+        background: #cfcfcf77;
+    }
 }
 .background-credits {
     position: fixed;

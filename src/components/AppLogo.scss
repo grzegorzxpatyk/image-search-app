@@ -1,0 +1,11 @@
+@import '../scss/_variables';
+.app-logo {
+    font-family: $font-family-inter;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    & > a {
+        color: rgb(43, 72, 134);
+        text-decoration: none;
+    }
+}
