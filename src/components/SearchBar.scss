@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 input {
     border-radius: 1.5rem;
     border: none;
@@ -6,7 +8,12 @@ input {
     padding: 1.5rem;
     width: 100%;
     font-size: 1.2rem;
+    color: $font-color;
 }
+input::placeholder {
+    color: $font-color;
+}
+
 input:focus-visible {
     outline: none;
     box-shadow: 0 0 3px #3a7efd88;

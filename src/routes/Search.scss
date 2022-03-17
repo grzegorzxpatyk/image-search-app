@@ -7,7 +7,18 @@
     & header {
         padding: 2rem;
         border-radius: 2rem;
+    }
+}
+
+@supports (backdrop-filter: blur(2px)) {
+    .search-container header {
         background: #cfcfcf77;
+        backdrop-filter: blur(1px);
+    }
+}
+@supports not (backdrop-filter: blur(2px)) {
+    .search-container header {
+        background: #cfcfcfc4;
     }
 }
 .background-credits {
