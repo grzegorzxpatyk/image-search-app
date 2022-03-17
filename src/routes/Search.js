@@ -11,19 +11,22 @@ export default function Search() {
     let [backgroundAuthorName, setBackgroundAuthorName] = useState('');
     let [backgroundAuthorProfile, setBackgroundAuthorProfile] = useState('');
     useEffect(() => {
+        const randomNum = Math.floor(Math.random() * 5);
         unsplashApi.search
             .getPhotos({
-                query: 'landing page',
-                color: 'white',
+                query: 'wallpaper',
                 orientation: 'landscape',
                 per_page: 5,
             })
             .then((result) => {
                 console.log(result);
-                setBackgroundUrl(result.response.results[0].urls.full); //Math.floor(Math.random() * 5)
-                setBackgroundAuthorName(result.response.results[0].user.name);
+
+                setBackgroundUrl(result.response.results[randomNum].urls.full); //Math.floor(Math.random() * 5)
+                setBackgroundAuthorName(
+                    result.response.results[randomNum].user.name
+                );
                 setBackgroundAuthorProfile(
-                    result.response.results[0].user.links.html
+                    result.response.results[randomNum].user.links.html
                 );
             })
             .catch((err) => {
