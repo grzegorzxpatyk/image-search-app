@@ -6,8 +6,16 @@ import Header from '../components/Header';
 import './Results.scss';
 
 export default function Results() {
-    const [imgs, setImgs, onEnter, query, setQuery, searchParams] =
-        useOutletContext();
+    const [
+        imgs,
+        setImgs,
+        onEnter,
+        query,
+        setQuery,
+        searchParams,
+        unsplashApi,
+        numberOfResults,
+    ] = useOutletContext();
     let [modalShow, setModalShow] = useState({});
     useEffect(() => {
         imgs.forEach((img) => {
@@ -26,6 +34,7 @@ export default function Results() {
                 searchParams={searchParams}
             />
             <main>
+                {numberOfResults === 0 && 'No results.'}
                 {imgs.map((img) => (
                     <>
                         <UnsplashImage

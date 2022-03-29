@@ -14,8 +14,9 @@ function App() {
     let navigate = useNavigate();
     let location = useLocation();
     let [imgs, setImgs] = useState([]);
+    let [numberOfResults, setNumberOfResults] = useState();
     let [query, setQuery] = useState();
-    // const apiRoot = process.env.REACT_APP_APIROOT;
+
     const accessKey = process.env.REACT_APP_ACCESSKEY;
     const unsplashApi = createApi({
         accessKey: accessKey,
@@ -24,6 +25,7 @@ function App() {
         event.preventDefault();
 
         setImgs(() => []);
+        setNumberOfResults(undefined);
         if (query) {
             if (location.pathname === '/') {
                 navigate({
@@ -46,7 +48,7 @@ function App() {
                 orientation: 'squarish',
             })
             .then((result) => {
-                console.log(result.response.results);
+                console.log(result);
                 result.response.results.forEach((result) => {
                     setImgs((prevImgs) => [
                         ...prevImgs,
@@ -59,9 +61,14 @@ function App() {
                         },
                     ]);
                 });
+                setNumberOfResults(result.response.total);
             })
-            .catch(() => {
-                console.log('something went wrong!');
+            .catch((error) => {
+                console.log(
+                    '%csomething went wrong!',
+                    'color: red; font-size: 50px; display: flex; justify-content: center; padding: 10px; background-color: yellow'
+                );
+                console.error(error);
             });
     }
 
@@ -76,6 +83,7 @@ function App() {
                     setQuery,
                     searchParams,
                     unsplashApi,
+                    numberOfResults,
                 ]}
             />
         </div>
