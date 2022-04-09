@@ -11,12 +11,12 @@ export default function Search() {
     let [backgroundAuthorName, setBackgroundAuthorName] = useState('');
     let [backgroundAuthorProfile, setBackgroundAuthorProfile] = useState('');
     useEffect(() => {
-        const randomNum = Math.floor(Math.random() * 5);
+        const randomNum = Math.floor(Math.random() * 10);
         unsplashApi.search
             .getPhotos({
                 query: 'wallpaper',
                 orientation: 'landscape',
-                per_page: 5,
+                per_page: 10,
             })
             .then((result) => {
                 console.log(result);
