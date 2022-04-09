@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { appName } from '../App';
+import './ModalImage.scss';
 
 export default function ModalImage({
     urls,
@@ -71,7 +72,9 @@ export default function ModalImage({
                         </div>
                     )}
                 </div>
-                <Button onClick={onHide}>Close</Button>
+                <Button className="btn-dark" onClick={onHide}>
+                    Close
+                </Button>
             </Modal.Footer>
         </Modal>
     );
