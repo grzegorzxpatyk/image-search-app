@@ -2,17 +2,19 @@
 @import './scss/variables';
 
 #App {
-    min-height: 100%;
+    min-height: 100vh;
+    height: fit-content;
     min-width: 280px;
-    height: 100vh;
-    font-family: $font-family-inter;
+    background: $lightGray;
+    font-family: $fontFamilyInter;
+    color: $fontColor;
     // display: flex;
     // justify-content: center;
     // align-items: center;
 }
 
 a {
-    color: rgb(33, 70, 149);
+    color: $accentFontColor;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     &:hover {

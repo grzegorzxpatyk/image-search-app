@@ -3,15 +3,15 @@
 input {
     border-radius: 1.5rem;
     border: none;
-    background-color: rgba(95, 95, 95, 0.678);
+    background-color: $lightGray;
     height: 3rem;
     padding: 1.5rem;
     width: 100%;
     font-size: 1.2rem;
-    color: $font-color;
+    color: $fontColor;
 }
 input::placeholder {
-    color: $font-color;
+    color: $fontColor;
 }
 
 input:focus-visible {

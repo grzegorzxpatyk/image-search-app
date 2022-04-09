@@ -1,5 +1,8 @@
+@import '../scss/variables';
+
 .search-container {
     width: 100%;
+    min-height: 100vh;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -7,20 +10,26 @@
     & header {
         padding: 2rem;
         border-radius: 2rem;
+        background-color: $midtoneGray;
+        // border: 1px solid $darkGray;
+        // box-shadow: 0 0 10px $lightGray;
+        input {
+            background-color: $lightGray;
+        }
     }
 }
 
 @supports (backdrop-filter: blur(2px)) {
     .search-container header {
-        background: #cfcfcf77;
+        // background: #cfcfcf77;
         backdrop-filter: blur(1px);
     }
 }
-@supports not (backdrop-filter: blur(2px)) {
-    .search-container header {
-        background: #cfcfcfc4;
-    }
-}
+// @supports not (backdrop-filter: blur(2px)) {
+//     .search-container header {
+//         // background: #cfcfcfc4;
+//     }
+// }
 .background-credits {
     position: fixed;
     bottom: 1rem;
