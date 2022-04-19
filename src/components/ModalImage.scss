@@ -7,6 +7,10 @@
 .modal-content {
     background-color: $lightGray;
     border: none;
+    img {
+        box-shadow: none;
+        cursor: default;
+    }
 }
 
 .modal-footer {

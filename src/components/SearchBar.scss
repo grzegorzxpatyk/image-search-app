@@ -9,9 +9,14 @@ input {
     width: 100%;
     font-size: 1.2rem;
     color: $fontColor;
-    box-shadow: 0 0 3px -1px $accentColor;
     transition: all 0.1s ease-out;
+    box-shadow: 0 0 6px 1px lighten($accentColorWOpacity, 30);
 }
+
+input:hover {
+    box-shadow: 0 0 6px 1px lighten($accentColorWOpacity, 10);
+}
+
 input::placeholder {
     color: $fontColor;
 }
