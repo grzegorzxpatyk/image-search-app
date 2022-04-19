@@ -6,4 +6,20 @@
 
 .modal-content {
     background-color: $lightGray;
+    border: none;
+}
+
+.modal-footer {
+    border-top: 1px solid $accentColorWOpacity;
+}
+
+.btn-dark {
+    background-color: darken($accentColor, 10);
+    border: 1px solid darken($accentColor, 10);
+
+    &:hover,
+    &:active {
+        background-color: scale-color($accentColor, $lightness: 10%);
+        border: 1px solid scale-color($accentColor, $lightness: 10%);
+    }
 }
