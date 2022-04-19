@@ -9,6 +9,8 @@ input {
     width: 100%;
     font-size: 1.2rem;
     color: $fontColor;
+    box-shadow: 0 0 3px -1px $accentColor;
+    transition: all 0.3s ease-out;
 }
 input::placeholder {
     color: $fontColor;
@@ -16,5 +18,5 @@ input::placeholder {
 
 input:focus-visible {
     outline: none;
-    box-shadow: 0 0 3px #3a7efd88;
+    box-shadow: 0 0 6px 1px $accentColor;
 }

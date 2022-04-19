@@ -1,5 +1,9 @@
 @import '../scss/variables';
 
+.modal-header {
+    border-bottom: 1px solid $accentColorWOpacity;
+}
+
 .modal-content {
     background-color: $lightGray;
 }
