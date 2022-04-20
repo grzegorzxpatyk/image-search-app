@@ -8,4 +8,9 @@
         color: $accentColor;
         text-decoration: none;
     }
+
+    & span.material-icons {
+        margin-right: 0.4rem;
+        font-size: 2.2rem;
+    }
 }

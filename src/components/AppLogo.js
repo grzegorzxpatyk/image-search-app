@@ -11,14 +11,11 @@ function AppLogo() {
                     to="/"
                     className="d-flex align-items-center flex-wrap justify-content-center"
                 >
-                    <span
-                        style={{ fontSize: '2.2rem' }}
-                        className="material-icons material-icons-outlined"
-                    >
+                    <span className="material-icons material-icons-outlined">
                         camera
                         {/* monochrome_photos */}
                     </span>
-                    {appName.charAt(0).toUpperCase() + appName.slice(1)}
+                    {appName.replaceAll('-', ' ')}
                 </NavLink>
             </h4>
         </>
