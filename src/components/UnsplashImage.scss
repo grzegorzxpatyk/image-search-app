@@ -7,6 +7,12 @@ img {
     object-fit: cover;
     margin: 0.5rem;
     cursor: pointer;
+    box-shadow: 0 0 0 0 $accentColorWOpacity;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+img:hover {
+    box-shadow: 0 0 1rem 0 $accentColorWOpacity;
 }
 
 @media screen and (max-width: 732px) {
