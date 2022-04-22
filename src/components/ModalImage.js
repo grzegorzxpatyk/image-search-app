@@ -5,6 +5,7 @@ import './ModalImage.scss';
 
 export default function ModalImage({
     urls,
+    link,
     alt,
     createdat,
     user,
@@ -48,7 +49,17 @@ export default function ModalImage({
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center align-items-center">
-                <img src={urls.regular} alt={alt} style={{ width: '100%' }} />
+                <a
+                    href={`${link}?utm_source=${appName}&utm_medium=referral`}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <img
+                        src={urls.regular}
+                        alt={alt}
+                        style={{ width: '100%' }}
+                    />
+                </a>
             </Modal.Body>
             <Modal.Footer className="d-flex justify-content-between">
                 <div

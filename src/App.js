@@ -55,6 +55,7 @@ function App() {
                         {
                             id: result.id,
                             urls: result.urls,
+                            link: result.links.html,
                             alt: result.alt_description,
                             createdat: result.created_at,
                             user: result.user,
