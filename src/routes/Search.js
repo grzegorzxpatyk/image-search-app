@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Header from '../components/Header';
+import Fade from 'react-reveal/Fade';
 import './Search.scss';
 import { appName } from '../App';
 
@@ -10,6 +11,14 @@ export default function Search() {
     let [backgroundUrl, setBackgroundUrl] = useState('');
     let [backgroundAuthorName, setBackgroundAuthorName] = useState('');
     let [backgroundAuthorProfile, setBackgroundAuthorProfile] = useState('');
+    let [bgLoaded, setBgLoaded] = useState(false);
+
+    function handleLoad() {
+        setTimeout(() => {
+            setBgLoaded(true);
+        }, 1000);
+    }
+
     useEffect(() => {
         const randomNum = Math.floor(Math.random() * 10);
         unsplashApi.search
@@ -40,35 +49,38 @@ export default function Search() {
     }, []);
 
     return (
-        <div
-            style={{
-                background: `lightgray url("${backgroundUrl}") 100vw`,
-            }}
-            className="search-container"
-        >
-            <Header
-                onEnter={onEnter}
-                setQuery={setQuery}
-                searchParams={searchParams}
-            />
-            <div className="background-credits">
-                Photo by{' '}
-                <a
-                    href={`${backgroundAuthorProfile}?utm_source=${appName}&utm_medium=referral`}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    @{backgroundAuthorName}
-                </a>{' '}
-                on{' '}
-                <a
-                    href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Unsplash
-                </a>
+        <Fade when={bgLoaded}>
+            <div
+                style={{
+                    background: `lightgray 100vw`,
+                }}
+                className="search-container"
+            >
+                <img src={backgroundUrl} alt="" onLoad={handleLoad} />
+                <Header
+                    onEnter={onEnter}
+                    setQuery={setQuery}
+                    searchParams={searchParams}
+                />
+                <div className="background-credits">
+                    Photo by{' '}
+                    <a
+                        href={`${backgroundAuthorProfile}?utm_source=${appName}&utm_medium=referral`}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        @{backgroundAuthorName}
+                    </a>{' '}
+                    on{' '}
+                    <a
+                        href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Unsplash
+                    </a>
+                </div>
             </div>
-        </div>
+        </Fade>
     );
 }
