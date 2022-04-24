@@ -34,15 +34,15 @@
 
 @supports (backdrop-filter: blur(2px)) {
     .search-container header {
-        background: $lightGrayWOpacity;
+        background: $midtoneGrayWOpacity;
         backdrop-filter: blur(3px);
     }
 }
-// @supports not (backdrop-filter: blur(2px)) {
-//     .search-container header {
-//         // background: #cfcfcfc4;
-//     }
-// }
+@supports not (backdrop-filter: blur(2px)) {
+    .search-container header {
+        background: $midtoneGray;
+    }
+}
 .background-credits {
     position: fixed;
     bottom: 1rem;
