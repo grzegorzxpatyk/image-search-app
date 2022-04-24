@@ -26,7 +26,6 @@
         border-radius: 2rem;
         background-color: $midtoneGray;
         border: 1px solid $accentColorWOpacity;
-        // box-shadow: 0 0 10px $lightGray;
         input {
             background-color: $lightGray;
         }
@@ -35,8 +34,8 @@
 
 @supports (backdrop-filter: blur(2px)) {
     .search-container header {
-        // background: #cfcfcf77;
-        backdrop-filter: blur(1px);
+        background: $lightGrayWOpacity;
+        backdrop-filter: blur(3px);
     }
 }
 // @supports not (backdrop-filter: blur(2px)) {
