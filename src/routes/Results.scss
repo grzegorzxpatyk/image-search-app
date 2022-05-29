@@ -8,11 +8,9 @@
 main {
     width: 75vw;
     margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
     padding-bottom: 5vh;
 }
 
@@ -24,13 +22,11 @@ input {
     main {
         width: auto;
         margin: 0 0.5rem;
-        justify-content: space-evenly;
     }
 }
 
 @media screen and (max-width: 375px) {
     main {
-        justify-content: center;
         margin: 0;
         width: 100vw;
     }
