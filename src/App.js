@@ -45,7 +45,6 @@ function App() {
                 query: query,
                 page: 1,
                 perPage: 12,
-                orientation: 'squarish',
             })
             .then((result) => {
                 console.log(result);
